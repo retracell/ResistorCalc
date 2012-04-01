@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ResistorLookup extends Activity {
 	Resistor myResistor;
@@ -18,11 +19,14 @@ public class ResistorLookup extends Activity {
 	}
 
 	public void getResistanceClicked(View v) {
+		
 		int resistance = Integer
 				.parseInt(resistanceNumber.getText().toString());
 		int tolerance = Integer.parseInt(toleranceNumber.getText().toString());
-		myResistor = new Resistor(resistance, tolerance);
-		myResistor.getBandColours();
+		Toast toast = Toast.makeText(getApplicationContext(), resistance + " + " + tolerance, Toast.LENGTH_LONG);
+		toast.show();
+		//myResistor = new Resistor(resistance, tolerance);
+		//myResistor.getBandColours();
 	}
 
 	public void updateResistorImage(String[] resistorColours) {

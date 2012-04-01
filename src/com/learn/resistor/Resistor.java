@@ -27,7 +27,7 @@ public class Resistor {
 	private int determineCountMultiplier(String resistance) {
 		char[] resistanceAsCharArray = resistance.toCharArray();
 		int count = 0;
-		for (int i = 0; i <= resistanceAsCharArray.length; ++i) {
+		for (int i = 0; i < resistanceAsCharArray.length; ++i) {
 			if (resistanceAsCharArray[i] == '0') {
 				count++;
 			}
