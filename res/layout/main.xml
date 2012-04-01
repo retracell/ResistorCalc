@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" android:layout_marginTop="2dip">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="2dip" >
 
         <ImageView
             android:id="@+id/imageView1"
@@ -71,73 +72,82 @@
         android:layout_width="match_parent"
         android:layout_height="2dip"
         android:layout_below="@id/linearLayout1"
-        android:background="#666666" android:layout_marginBottom="10dip" android:layout_marginTop="2dip"/>
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="2dip"
+        android:background="#666666" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/resistance_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/view1"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
         android:layout_marginTop="20dip"
-        android:text="Resistance:" android:layout_marginRight="2dip" android:layout_marginLeft="2dip"/>
-
+        android:text="Resistance:" />
+
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/resistance_value"
         android:layout_width="200dip"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_alignBaseline="@+id/resistance_text"
+        android:layout_alignBottom="@+id/resistance_text"
+        android:layout_toRightOf="@+id/resistance_text"
         android:inputType="number" >
 
         <requestFocus />
     </EditText>
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText1"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_toRightOf="@+id/editText1"
-        android:text="Ω" android:layout_marginLeft="2dip"/>
+        android:layout_alignBaseline="@+id/resistance_value"
+        android:layout_alignBottom="@+id/resistance_value"
+        android:layout_marginLeft="2dip"
+        android:layout_toRightOf="@+id/resistance_value"
+        android:text="Ω" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tolerance_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/resistance_text"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
         android:layout_marginTop="30dip"
-        android:text="Tolerance:" android:layout_marginRight="2dip" android:layout_marginLeft="2dip"/>
+        android:text="Tolerance:" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/tolerance_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:inputType="number" android:layout_alignLeft="@+id/editText1" android:layout_alignRight="@+id/editText1"/>
+        android:layout_alignBaseline="@+id/tolerance_text"
+        android:layout_alignLeft="@+id/resistance_value"
+        android:layout_alignRight="@+id/resistance_value"
+        android:layout_toRightOf="@+id/tolerance_text"
+        android:inputType="number" />
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText2"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_toRightOf="@+id/editText2"
-        android:text="%" android:layout_marginLeft="2dip"/>
+        android:layout_alignBaseline="@+id/tolerance_value"
+        android:layout_alignBottom="@+id/tolerance_value"
+        android:layout_marginLeft="2dip"
+        android:layout_toRightOf="@+id/tolerance_value"
+        android:text="%" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/get_resistor_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/tolerance_text"
         android:layout_marginLeft="60dip"
         android:layout_marginRight="60dip"
         android:layout_marginTop="30dip"
-        android:text="Button" />
+        android:onClick="getResistanceClicked"
+        android:text="Get Resistance" />
 
 </RelativeLayout>
