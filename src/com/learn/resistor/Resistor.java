@@ -22,7 +22,14 @@ public class Resistor {
 		convertResistanceToBand();
 		bandColours[0] = colourCode[band[0]];
 		bandColours[1] = colourCode[band[1]];
-		bandColours[2] = colourCode[band[2] - 1];
+		// This if statement is necessary to check if the 2nd digit is 0.
+		// If it is, then we subtract by one index because it is one less
+		// multiplier.
+		if (Integer.toString(resistance).toCharArray()[1] == '0') {
+			bandColours[2] = colourCode[band[2] - 1];
+		} else {
+			bandColours[2] = colourCode[band[2]];
+		}
 		switch (band[3]) {
 		case 5:
 			bandColours[3] = toleranceCode[0];

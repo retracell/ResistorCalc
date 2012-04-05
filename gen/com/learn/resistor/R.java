@@ -16,7 +16,8 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f050000;
-        public static final int get_resistor_button=0x7f050010;
+        public static final int five_percent=0x7f050011;
+        public static final int get_resistor_button=0x7f050014;
         public static final int imageView1=0x7f050002;
         public static final int imageView2=0x7f050003;
         public static final int imageView3=0x7f050004;
@@ -27,10 +28,13 @@ public final class R {
         public static final int imageView8=0x7f050009;
         public static final int imageView9=0x7f05000a;
         public static final int linearLayout1=0x7f050001;
+        public static final int linearLayout2=0x7f05000e;
         public static final int resistance_text=0x7f05000c;
         public static final int resistance_value=0x7f05000d;
-        public static final int tolerance_text=0x7f05000e;
-        public static final int tolerance_value=0x7f05000f;
+        public static final int ten_percent=0x7f050012;
+        public static final int tolerance_text=0x7f05000f;
+        public static final int tolerances=0x7f050010;
+        public static final int twenty_percent=0x7f050013;
         public static final int view1=0x7f05000b;
     }
     public static final class layout {

@@ -6,12 +6,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class ResistorLookup extends Activity {
 	Resistor myResistor;
+	RadioGroup myToleranceGroup;
 	EditText resistanceNumber;
-	EditText toleranceNumber;
 	AlertDialog errorDialog;
 
 	public void onCreate(Bundle me) {
@@ -25,15 +26,23 @@ public class ResistorLookup extends Activity {
 			}
 		});
 		resistanceNumber = (EditText) findViewById(R.id.resistance_value);
-		toleranceNumber = (EditText) findViewById(R.id.tolerance_value);
+		myToleranceGroup = (RadioGroup) findViewById(R.id.tolerances);
 	}
 
 	public void getResistanceClicked(View v) {
 		int resistance = 0;
 		int tolerance = 0;
-		String resistanceString = resistanceNumber.getText().toString();
-		String toleranceString = toleranceNumber.getText().toString();
-		tolerance = Integer.parseInt(toleranceString);
+		String resistanceString;
+
+		resistanceString = resistanceNumber.getText().toString();
+		if (myToleranceGroup.getCheckedRadioButtonId() == R.id.five_percent) {
+			tolerance = 5;
+		} else if (myToleranceGroup.getCheckedRadioButtonId() == R.id.ten_percent) {
+			tolerance = 10;
+		} else {
+			tolerance = 20;
+		}
+
 		if (Integer.parseInt(resistanceString) != 0) {
 			if (resistanceString.length() > 1) {
 				resistance = Integer.parseInt(resistanceString);
