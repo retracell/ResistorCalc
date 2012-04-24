@@ -6,9 +6,8 @@ public class Resistor {
 	public int band[] = new int[4];
 
 	String[] colourCode = { "Black", "Brown", "Red", "Orange", "Yellow",
-			"Green", "Blue", "Violet", "Grey", "White" };
-	String[] toleranceCode = { "Gold", "Silver", "None" };
-	String[] bandColours = new String[4];
+			"Green", "Blue", "Violet", "Gray", "White", "Gold", "Silver", "None" };
+	int[] bandColours = new int[4];
 
 	public Resistor(int resistance, int tolerance) {
 		this.resistance = resistance;
@@ -18,30 +17,30 @@ public class Resistor {
 
 	// This is the general method that is used to determine what colour the
 	// resistance bands should be based on the resistance integer given.
+	// We can return an array index instead of colour string as long as all 
+	// colours are in set order.
 	private void determineBandColours() {
 		convertResistanceToBand();
-		bandColours[0] = colourCode[band[0]];
-		bandColours[1] = colourCode[band[1]];
+		bandColours[0] = band[0];
+		bandColours[1] = band[1];
 		// This if statement is necessary to check if the 2nd digit is 0.
 		// If it is, then we subtract by one index because it is one less
 		// multiplier.
 		if (Integer.toString(resistance).toCharArray()[1] == '0') {
-			bandColours[2] = colourCode[band[2] - 1];
+			bandColours[2] = band[2] - 1;
 		} else {
-			bandColours[2] = colourCode[band[2]];
+			bandColours[2] = band[2];
 		}
 		switch (band[3]) {
 		case 5:
-			bandColours[3] = toleranceCode[0];
+			bandColours[3] = 10; //colourCode index 10
 			break;
 		case 10:
-			bandColours[3] = toleranceCode[1];
+			bandColours[3] = 11; //index 11
 			break;
 		case 20:
-			bandColours[3] = toleranceCode[2];
+			bandColours[3] = 12; //index 12
 		}
-		// Will need to change tolerance to RadioGroup as there is only 5%, 10%,
-		// and 20%
 	}
 
 	// This method parses the integer into a string and determines from an array
@@ -68,7 +67,7 @@ public class Resistor {
 	}
 
 	// Called by the activity, returns the band colours as an array.
-	public String[] getBandColours() {
+	public int[] getBandColours() {
 		return bandColours;
 	}
 

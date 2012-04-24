@@ -14,10 +14,26 @@ public class ResistorLookup extends Activity {
 	RadioGroup myToleranceGroup;
 	EditText resistanceNumber;
 	AlertDialog errorDialog;
+	View colourbands[] = new View[4];
+	int hex = 0;
+
+	// Should change this into res/values in the future.
+	int[] hexColours = { 0xFF000000, 0xFF964B00, 0xFFFF0000, 0xFFFF7F00, 0xFFFFFF00,
+			0xFF00FF00, 0xFF0000FF, 0xFF7F00FF, 0xFF808080, 0xFFFFFFFF, 0xFFFFD700,
+			0xFFC9C0BB };
 
 	public void onCreate(Bundle me) {
 		super.onCreate(me);
 		setContentView(R.layout.main);
+		// The hexColours are listed in this order:
+		// BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET, GRAY, WHITE
+		// GOLD, SILVER
+
+		colourbands[0] = (View) findViewById(R.id.colour1);
+		colourbands[1] = (View) findViewById(R.id.colour2);
+		colourbands[2] = (View) findViewById(R.id.colour3);
+		colourbands[3] = (View) findViewById(R.id.colour4);
+
 		errorDialog = new AlertDialog.Builder(this).create();
 		errorDialog.setTitle("Error");
 		errorDialog.setButton("OK", new DialogInterface.OnClickListener() {
@@ -50,10 +66,15 @@ public class ResistorLookup extends Activity {
 				// Toast toast = Toast.makeText(getApplicationContext(),
 				// myResistor.arrayToString(myResistor.band),
 				// Toast.LENGTH_LONG);
-				String[] tempArray = myResistor.getBandColours();
+				int[] tempArray = myResistor.getBandColours();
+
 				Toast toast = Toast.makeText(getApplicationContext(),
 						arrayToString(tempArray), Toast.LENGTH_LONG);
 				toast.show();
+
+				for (int i = 0; i < colourbands.length; i++) {
+					colourbands[i].setBackgroundColor(hexColours[tempArray[i]]);
+				}
 			} else if (resistanceString.length() == 1) {
 				errorDialog
 						.setMessage("Single digit resistance is not yet supported Please try again.");
@@ -66,7 +87,7 @@ public class ResistorLookup extends Activity {
 		}
 	}
 
-	public String arrayToString(String[] array) {
+	public String arrayToString(int[] array) {
 		String tempString = "";
 		for (int i = 0; i < array.length; ++i) {
 			tempString = tempString + array[i] + " ";
