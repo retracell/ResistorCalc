@@ -12,7 +12,6 @@ public class Resistor {
 	public Resistor(int resistance, int tolerance) {
 		this.resistance = resistance;
 		this.tolerance = tolerance;
-		determineBandColours();
 	}
 
 	// This is the general method that is used to determine what colour the
@@ -68,6 +67,7 @@ public class Resistor {
 
 	// Called by the activity, returns the band colours as an array.
 	public int[] getBandColours() {
+		determineBandColours();
 		return bandColours;
 	}
 

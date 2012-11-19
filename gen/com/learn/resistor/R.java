@@ -17,9 +17,9 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f050000;
-        public static final int colour1=0x7f050002;
-        public static final int colour2=0x7f050003;
-        public static final int colour3=0x7f050004;
+        public static final int band1=0x7f050002;
+        public static final int band2=0x7f050003;
+        public static final int band3=0x7f050004;
         public static final int colour4=0x7f050005;
         public static final int five_percent=0x7f05000c;
         public static final int get_resistor_button=0x7f05000f;
@@ -37,7 +37,14 @@ public final class R {
         public static final int main=0x7f030000;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
+        public static final int app_name=0x7f040000;
+        public static final int get_resistance_button=0x7f040001;
+        public static final int omega_symbol=0x7f040007;
+        public static final int resistance_img_dsc=0x7f040008;
+        public static final int resistance_label=0x7f040006;
+        public static final int tolerance10=0x7f040003;
+        public static final int tolerance20=0x7f040004;
+        public static final int tolerance5=0x7f040002;
+        public static final int tolerance_label=0x7f040005;
     }
 }

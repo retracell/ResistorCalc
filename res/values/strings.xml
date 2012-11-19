@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="hello">Hello World, ResistorLookup!</string>
-    <string name="app_name">Resistor</string>
-
+    <string name="app_name">Resistor Lookup</string>
+    <string name="get_resistance_button">Get Resistance</string>
+    <string name="tolerance_radio_5">5%</string>
+    <string name="tolerance_radio_10">10%</string>
+    <string name="tolerance_radio_20">20%</string>
+    <string name="tolerance_label">Tolerance:</string>
+    <string name="resistance_label">Resistance:</string>
+    <string name="ohm_symbol">Ω</string>
+    <string name="resistance_img_dsc">Image of Resistor</string>
 </resources>
