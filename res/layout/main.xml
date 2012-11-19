@@ -6,46 +6,47 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="480px"
-        android:layout_height="220px"
+        android:layout_width="480dp"
+        android:layout_height="220dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/resistor_img" />
+        android:src="@drawable/resistor_img" 
+        android:contentDescription="@string/resistor_img_dsc" />
 
     <View
-        android:id="@+id/colour1"
-        android:layout_width="15px"
-        android:layout_height="85px"
+        android:id="@+id/band1"
+        android:layout_width="10dp"
+        android:layout_height="57dp"
         android:layout_alignLeft="@id/imageView1"
-        android:layout_marginLeft="160px"
-        android:layout_marginTop="73px"
-        android:background="#964b00" />
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="85dp"
+        android:background="@color/brown" />
 
     <View
-        android:id="@+id/colour2"
-        android:layout_width="15px"
-        android:layout_height="84px"
-        android:layout_marginLeft="35px"
-        android:layout_marginTop="73px"
-        android:layout_toRightOf="@id/colour1"
-        android:background="#000000" />
+        android:id="@+id/band2"
+        android:layout_width="10dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="85dp"
+        android:layout_toRightOf="@id/band1"
+        android:background="@color/black" />
 
     <View
-        android:id="@+id/colour3"
-        android:layout_width="15px"
-        android:layout_height="85px"
-        android:layout_marginLeft="35px"
-        android:layout_marginTop="73px"
-        android:layout_toRightOf="@id/colour2"
-        android:background="#964b00" />
+        android:id="@+id/band3"
+        android:layout_width="10dp"
+        android:layout_height="57dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="85dp"
+        android:layout_toRightOf="@id/band2"
+        android:background="@color/brown" />
 
     <View
-        android:id="@+id/colour4"
-        android:layout_width="15px"
-        android:layout_height="85px"
-        android:layout_marginLeft="50px"
-        android:layout_marginTop="72px"
-        android:layout_toRightOf="@id/colour3"
-        android:background="#ffd700" />
+        android:id="@+id/band4"
+        android:layout_width="10dp"
+        android:layout_height="56dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="85dp"
+        android:layout_toRightOf="@id/band3"
+        android:background="@color/gold" />
 
     <View
         android:id="@+id/view1"
@@ -54,7 +55,7 @@
         android:layout_below="@+id/imageView1"
         android:layout_marginBottom="10dip"
         android:layout_marginTop="2dip"
-        android:background="#666666" />
+        android:background="@color/dark_gray" />
 
     <TextView
         android:id="@+id/resistance_text"
@@ -65,10 +66,11 @@
         android:layout_marginLeft="2dip"
         android:layout_marginRight="2dip"
         android:layout_marginTop="20dip"
-        android:text="Resistance:" />
+        android:text="@string/resistance_label" />
 
     <EditText
         android:id="@+id/resistance_value"
+        android:digits="0123456789"
         android:layout_width="200dip"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/resistance_text"
@@ -86,7 +88,7 @@
         android:layout_alignBottom="@+id/resistance_value"
         android:layout_marginLeft="2dip"
         android:layout_toRightOf="@+id/resistance_value"
-        android:text="Ω" />
+        android:text="@string/ohm_symbol" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -103,7 +105,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="2dip"
             android:layout_marginRight="8dip"
-            android:text="Tolerance:" />
+            android:text="@string/tolerance_label" />
 
         <RadioGroup
             android:id="@+id/tolerances"
@@ -118,21 +120,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dip"
                 android:checked="true"
-                android:text="5%" />
+                android:text="@string/tolerance_radio_5" />
 
             <RadioButton
                 android:id="@+id/ten_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dip"
-                android:text="10%" />
+                android:text="@string/tolerance_radio_10" />
 
             <RadioButton
                 android:id="@+id/twenty_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dip"
-                android:text="20%" />
+                android:text="@string/tolerance_radio_20" />
         </RadioGroup>
     </LinearLayout>
 
@@ -146,6 +148,6 @@
         android:layout_marginRight="60dip"
         android:layout_marginTop="30dip"
         android:onClick="getResistanceClicked"
-        android:text="Get Resistance" />
+        android:text="@string/get_resistance_button" />
 
 </RelativeLayout>
