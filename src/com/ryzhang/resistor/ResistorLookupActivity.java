@@ -4,16 +4,19 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ResistorLookup extends Activity {
+public class ResistorLookupActivity extends Activity {
 	Resistor myResistor;
 	RadioGroup myToleranceGroup;
 	EditText resistanceNumber;
@@ -42,6 +45,8 @@ public class ResistorLookup extends Activity {
 	public void onCreate(Bundle me) {
 		super.onCreate(me);
 		setContentView(R.layout.main);
+
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		colourbands[0] = (View) findViewById(R.id.band1);
 		colourbands[1] = (View) findViewById(R.id.band2);
@@ -49,38 +54,44 @@ public class ResistorLookup extends Activity {
 		colourbands[3] = (View) findViewById(R.id.band4);
 
 		resistanceNumber = (EditText) findViewById(R.id.resistance_value);
-		resistanceNumber.setOnEditorActionListener(listener);
+        resistanceNumber.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    calculateResistance();
+                    return true;
+                }
+                return false;
+            }
+        });
 		myToleranceGroup = (RadioGroup) findViewById(R.id.tolerances);
 	}
-	
-	TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
-		
-		public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-			if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_DOWN) {
-				getResistanceClicked(v);
-			}
-			return true;
-		}
-	};
+
+    public void calculateResistance() {
+        String resistance;
+        int tolerance = 0;
+
+        resistance = resistanceNumber.getText().toString();
+        if (myToleranceGroup.getCheckedRadioButtonId() == R.id.five_percent) tolerance = 5;
+        else if (myToleranceGroup.getCheckedRadioButtonId() == R.id.ten_percent) tolerance = 10;
+        else tolerance = 20;
+
+        if (resistance.length() > 1) {
+            updateResistorImage(resistance, tolerance);
+        } else if (resistance.length() == 1) {
+            errorDialog.setMessage("Single digit resistance is not yet supported Please try again.");
+            errorDialog.show();
+        } else {
+            errorDialog.setMessage("You entered an invalid resistance value. Please try again.");
+            errorDialog.show();
+        }
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(resistanceNumber.getWindowToken(), 0);
+    }
+
 
 	public void getResistanceClicked(View v) {
-		String resistance;
-		int tolerance = 0;
-
-		resistance = resistanceNumber.getText().toString();
-		if (myToleranceGroup.getCheckedRadioButtonId() == R.id.five_percent) tolerance = 5;
-		else if (myToleranceGroup.getCheckedRadioButtonId() == R.id.ten_percent) tolerance = 10;
-		else tolerance = 20;
-
-		if (resistance.length() > 1) {
-			updateResistorImage(resistance, tolerance);
-		} else if (resistance.length() == 1) {
-			errorDialog.setMessage("Single digit resistance is not yet supported Please try again.");
-			errorDialog.show();
-		} else {
-			errorDialog.setMessage("You entered an invalid resistance value. Please try again.");
-			errorDialog.show();
-		}
+        calculateResistance();
 	}
 
 	public String arrayToString(String[] array) {
@@ -95,9 +106,7 @@ public class ResistorLookup extends Activity {
 		myResistor = new Resistor(resistance, tolerance);
 		String[] bands = myResistor.getBandColours();
 		
-		Toast toast = Toast.makeText(getApplicationContext(),
-				arrayToString(bands), Toast.LENGTH_LONG);
-		toast.show();
+		//Toast.makeText(getApplicationContext(), arrayToString(bands), Toast.LENGTH_LONG).show();
 		
 		for (int i = 0; i < colourbands.length; i++) {
 			colourbands[i].setBackgroundColor(map.get(bands[i]));
