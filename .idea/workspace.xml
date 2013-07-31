@@ -24,8 +24,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ad8beec-b063-4997-9d61-e44bd66eb8ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README" afterPath="$PROJECT_DIR$/README" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/README" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="Resicalc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -155,10 +154,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="96" selection-start="112" selection-end="112" vertical-scroll-proportion="0.06507592">
+            <state line="2" column="22" selection-start="38" selection-end="38" vertical-scroll-proportion="0.06507592">
               <folding />
             </state>
           </provider>
@@ -839,9 +838,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="96" selection-start="112" selection-end="112" vertical-scroll-proportion="0.06507592">
+        <state line="2" column="22" selection-start="38" selection-end="38" vertical-scroll-proportion="0.06507592">
           <folding />
         </state>
       </provider>
