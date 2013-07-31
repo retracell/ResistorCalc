@@ -1,13 +1,11 @@
-package com.learn.resistor;
+package com.ryzhang.resistor;
 
 import java.util.HashMap;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.TextureView;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;

@@ -1,5 +1,7 @@
+/*___Generated_by_IDEA___*/
+
 /** Automatically generated file. DO NOT MODIFY */
-package com.learn.resistor;
+package com.ryzhang.resistor;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

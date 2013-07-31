@@ -1,4 +1,4 @@
-package com.learn.resistor;
+package com.ryzhang.resistor;
 
 public class Resistor {
 	private String resistance;
