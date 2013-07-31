@@ -1,5 +1,3 @@
-This is a small android project I'm doing to learn the basics of the SDK.
+# ResistorCalc
 
-While building circuits I sometimes felt lazy and would just google what resistor colours to use for a specific resistance. However all the ones I found lets you select colours then tells you the resistance.
-
-This application will aim to do the reverse and provide the user with the resistor band colours given a resistance and tolerance.
+Lightweight Android application to determine resistor bands when given resistance and tolerance.
