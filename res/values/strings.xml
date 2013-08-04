@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ResistorCalc</string>
-    <string name="get_resistance_button">Get Resistance</string>
+    <string name="get_resistance_button">Get Resistor</string>
     <string name="tolerance_radio_5">5%</string>
     <string name="tolerance_radio_10">10%</string>
     <string name="tolerance_radio_20">20%</string>
